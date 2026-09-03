@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ZIG</string>
+    <string name="app_subtitle">Astronomy Companion</string>
+    
+    <!-- Navigation Tabs -->
+    <string name="nav_home">Home</string>
+    <string name="nav_compass">AR Sky</string>
+    <string name="nav_skymap">Sky Map</string>
+    <string name="nav_moon">Moon</string>
+    <string name="nav_iss">Satellites</string>
+    <string name="nav_lab">Lab</string>
+    <string name="nav_satellites">Satellites</string>
+    <string name="nav_arsky">AR Sky</string>
+
+    <!-- Home Screen -->
+    <string name="tonights_sky">Tonight\'s Sky</string>
+    <string name="light_pollution">Light Pollution: Bortle %1$d</string>
+    <string name="bortle_class_simple">Bortle %1$d</string>
+    <string name="moon_status">Moon Status</string>
+    <string name="iss_pass">Satellites</string>
+    <string name="visible_targets">Tonight\'s Visible Targets</string>
+    <string name="category_all">All</string>
+    <string name="category_planets">Planets</string>
+    <string name="category_stars">Stars</string>
+    <string name="category_deepsky">Deep Sky</string>
+    <string name="category_constellations">Constellations</string>
+
+    <!-- Compass AR Screen -->
+    <string name="compass_title">AR Sky</string>
+    <string name="identify">Identify</string>
+    <string name="ar_hint">Point phone at sky or drag screen to identify objects</string>
+    <string name="azimuth_short">Az: %1$s</string>
+    <string name="altitude_short">Alt: %1$s</string>
+
+    <!-- Sky Map Screen -->
+    <string name="search_placeholder">Search stars, planets, constellations...</string>
+
+    <!-- Moon Screen -->
+    <string name="moon_phase">Moon Phase</string>
+    <string name="illumination">Illumination</string>
+    <string name="moon_age">Moon Age</string>
+    <string name="distance">Distance</string>
+    <string name="next_full_moon">Next Full Moon</string>
+    <string name="next_new_moon">Next New Moon</string>
+
+    <!-- ISS Screen -->
+    <string name="next_visible_iss_pass">Next Visible ISS Pass</string>
+    <string name="max_altitude">Max Altitude</string>
+    <string name="duration">Duration</string>
+
+    <!-- Dialogs & Settings -->
+    <string name="favorites_and_history">Favorites &amp; History</string>
+    <string name="settings">Settings</string>
+    <string name="app_settings">ZIG App Settings</string>
+    <string name="application_language">Application Language:</string>
+    <string name="language_persian">فارسی (Persian)</string>
+    <string name="language_english">English</string>
+    <string name="calendar_system">Calendar System:</string>
+    <string name="calendar_solar_hijri">Solar Hijri</string>
+    <string name="calendar_gregorian">Gregorian</string>
+    <string name="observation_location">Observation Location:</string>
+    <string name="bortle_class_setting">Bortle Light Pollution Class: %1$d</string>
+    <string name="select_city">Select Iran Provincial Capital</string>
+    <string name="liquid_glass_setting">Liquid Glass (Optical Surface)</string>
+    <string name="liquid_glass_desc">Physical optical refraction and ambient blur on floating UI (Android 13+)</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+
+    <!-- Developer Info -->
+    <string name="developed_by">Developed by Ali Jafari</string>
+    <string name="telegram_id">Telegram: @EdisonWasAThief</string>
+
+    <!-- Object Detail Modal -->
+    <string name="add_to_favorites">Add to Favorites</string>
+    <string name="remove_from_favorites">Remove from Favorites</string>
+    <string name="add_observation_log">Add Observation Log</string>
+    <string name="log_notes_label">Notes / Sky Condition</string>
+    <string name="rating_label">Rating (1-5)</string>
+    <string name="save_log">Save Log</string>
+    <string name="favorites">Favorites</string>
+    <string name="observation_logs">Observation Logs</string>
+    <string name="no_favorites_yet">No favorite objects added yet.</string>
+    <string name="no_logs_yet">No observation logs recorded yet.</string>
+    <string name="delete">Delete</string>
+    <string name="close">Close</string>
+
+    <!-- ZIG Gravity Sandbox (English) -->
+    <string name="zig_gravity_empty_state">The experiment table is ready</string>
+    <string name="zig_gravity_cd_play_pause">Pause / resume</string>
+    <string name="zig_gravity_cd_speed">Time speed</string>
+    <string name="zig_gravity_cd_reset">Reset experiment</string>
+    <string name="zig_gravity_cd_trails">Motion trails</string>
+    <string name="zig_gravity_cd_teaching">Teaching mode</string>
+    <string name="zig_gravity_cd_theme">Theme</string>
+    <string name="zig_gravity_cd_language">Language</string>
+    <string name="zig_gravity_cd_add">Add body</string>
+    <string name="zig_gravity_speed_0_1">0.1×</string>
+    <string name="zig_gravity_speed_0_25">0.25×</string>
+    <string name="zig_gravity_speed_1">1×</string>
+    <string name="zig_gravity_speed_4">4×</string>
+    <string name="zig_gravity_speed_16">16×</string>
+
+    <string name="zig_gravity_inspect">Inspect</string>
+    <string name="zig_gravity_duplicate">Duplicate</string>
+    <string name="zig_gravity_remove">Remove</string>
+    <string name="zig_gravity_mass">Mass</string>
+    <string name="zig_gravity_mass_earth_unit">Earth masses</string>
+    <string name="zig_gravity_mass_sun_unit">Solar masses</string>
+    <string name="zig_gravity_size">Size</string>
+    <string name="zig_gravity_velocity">Velocity</string>
+    <string name="zig_gravity_circularize">Make orbit circular</string>
+    <string name="zig_gravity_add_title">Add body</string>
+    <string name="zig_gravity_type_sun">Sun</string>
+    <string name="zig_gravity_type_planet">Planet</string>
+    <string name="zig_gravity_type_moon">Moon</string>
+    <string name="zig_gravity_type_asteroid">Asteroid</string>
+    <string name="zig_gravity_type_marble">Test marble</string>
+    <string name="zig_gravity_type_black_hole">Black hole</string>
+    <string name="zig_gravity_type_wormhole">Wormhole</string>
+    <string name="zig_gravity_type_wormhole_pair">Wormhole (pair)</string>
+    <string name="zig_gravity_type_wormhole_mouth">Wormhole mouth</string>
+    <string name="zig_gravity_wormhole_desc">Two linked mouths — gravitational shortcut</string>
+    <string name="zig_gravity_wormhole_mouth_radius">Mouth radius</string>
+    <string name="zig_gravity_wormhole_partner_label">Linked mouth: Body %1$d</string>
+    <string name="zig_gravity_wormhole_remove_warning">Removing this mouth will also remove its linked partner.</string>
+    <string name="zig_gravity_wormhole_explanation">A wormhole is a hypothetical structure in general relativity. In this experiment, the two mouths act as spatial portals with zero mass. Any body entering one mouth exits the other with its velocity preserved.</string>
+    <string name="zig_gravity_coming_soon">Coming soon</string>
+    <string name="zig_gravity_table_full">The experiment table is full — 20 bodies is the maximum</string>
+    <string name="zig_gravity_preview_approx">Approximate preview</string>
+    <string name="zig_gravity_real_radius_sun">Real radius of the Sun: 695,700 km</string>
+    <string name="zig_gravity_real_radius_earth">Real radius of the Earth: 6,371 km</string>
+    <string name="zig_gravity_real_radius_moon">Real radius of the Moon: 1,737 km</string>
+    <string name="zig_gravity_marble_bounce_mode">Marble bounce mode</string>
+    <string name="zig_gravity_marble_bounce_desc">Test marbles bounce with restitution instead of merging</string>
+    <string name="zig_gravity_presets_title">Experiments</string>
+    <string name="zig_gravity_preset_sun_earth">Sun &amp; Earth</string>
+    <string name="zig_gravity_preset_sun_earth_moon">Sun, Earth &amp; Moon</string>
+    <string name="zig_gravity_preset_binary_stars">Binary stars</string>
+    <string name="zig_gravity_preset_figure_eight">Figure-eight</string>
+    <string name="zig_gravity_preset_collision_course">Collision &amp; merger</string>
+    <string name="zig_gravity_preset_marble_shower">Marble shower</string>
+    <string name="zig_gravity_preset_stress_20">Stress test — 20 bodies</string>
+    <string name="zig_gravity_event_horizon_real">True event horizon: %1$s</string>
+    <string name="zig_gravity_bh_note">Gravity in this simulation is Newtonian everywhere. The event horizon is a general-relativity concept, shown here only as the boundary of no return. The ring\'s drawn size is a display convention, not to scale.</string>
+    <string name="zig_gravity_ring_size_hint">Ring size (display convention)</string>
+
+    <!-- Phase 9: Education System -->
+    <string name="zig_gravity_edu_why">Why?</string>
+    <string name="zig_gravity_edu_learn_more">Learn more</string>
+    <string name="zig_gravity_edu_ready">I\'m ready</string>
+    <string name="zig_gravity_edu_observe">Observe…</string>
+    <string name="zig_gravity_edu_predict_prompt">What\'s your prediction?</string>
+    <string name="zig_gravity_edu_reflection_template">Your prediction: %1$s — Correct answer: %2$s</string>
+    <string name="zig_gravity_edu_challenges_title">Guided Challenges</string>
+    <string name="zig_gravity_edu_challenges_subtitle">Experiment, predict, and discover cosmic laws</string>
+
+    <!-- Prediction micro-prompts -->
+    <string name="zig_gravity_pred_mass_opt_change">The orbit changes</string>
+    <string name="zig_gravity_pred_mass_opt_none">Almost nothing</string>
+    <string name="zig_gravity_pred_mass_reaction">More mass, more gravity — but also more inertia; the body\'s own orbit barely changes! Only the other body wobbles more.</string>
+    <string name="zig_gravity_pred_vel_opt_expand">The orbit expands</string>
+    <string name="zig_gravity_pred_vel_opt_fall">It falls inward</string>
+    <string name="zig_gravity_pred_vel_reaction">Higher speed, bigger orbit — and past escape velocity, no orbit remains at all.</string>
+    <string name="zig_gravity_pred_size_reaction">Size here is a display convention that sets collision radius — not the physics of gravity.</string>
+
+    <!-- Challenge 1 -->
+    <string name="zig_gravity_challenge_1_title">Double the mass</string>
+    <string name="zig_gravity_challenge_1_intro">If we double Earth\'s mass, what happens to its orbit around the Sun?</string>
+    <string name="zig_gravity_challenge_1_opt_1">Earth\'s orbit becomes faster and tighter</string>
+    <string name="zig_gravity_challenge_1_opt_2">Earth\'s orbit remains almost unchanged</string>
+    <string name="zig_gravity_challenge_1_opt_3">Earth falls into the Sun</string>
+    <string name="zig_gravity_challenge_1_success">Double gravity, double inertia — they cancel each other out! The only real change: the Sun wobbles twice as much.</string>
+
+    <!-- Challenge 2 -->
+    <string name="zig_gravity_challenge_2_title">Distant Earth</string>
+    <string name="zig_gravity_challenge_2_intro">If a planet is placed at 1.5 times Earth\'s distance, how does its year change?</string>
+    <string name="zig_gravity_challenge_2_opt_1">Shorter year and faster motion</string>
+    <string name="zig_gravity_challenge_2_opt_2">Longer year and slower motion</string>
+    <string name="zig_gravity_challenge_2_opt_3">No change</string>
+    <string name="zig_gravity_challenge_2_success">Kepler: at 1.5× distance, the year is about 1.8× longer (T² ∝ a³).</string>
+
+    <!-- Challenge 3 -->
+    <string name="zig_gravity_challenge_3_title">Too fast</string>
+    <string name="zig_gravity_challenge_3_intro">If a test marble at 1 AU is launched at 45 km/s, what happens?</string>
+    <string name="zig_gravity_challenge_3_opt_1">The orbit lowers</string>
+    <string name="zig_gravity_challenge_3_opt_2">Orbits faster but stays bound</string>
+    <string name="zig_gravity_challenge_3_opt_3">Escapes gravity\'s grip</string>
+    <string name="zig_gravity_challenge_3_success">45 km/s exceeds the escape velocity of 42.1 km/s — no orbit can hold it.</string>
+
+    <!-- Challenge 4 -->
+    <string name="zig_gravity_challenge_4_title">Two-star dance</string>
+    <string name="zig_gravity_challenge_4_intro">In a binary system with equal masses, how do the stars move?</string>
+    <string name="zig_gravity_challenge_4_opt_1">The larger star orbits the smaller one</string>
+    <string name="zig_gravity_challenge_4_opt_2">Both orbit the invisible midpoint</string>
+    <string name="zig_gravity_challenge_4_opt_3">Both remain stationary</string>
+    <string name="zig_gravity_challenge_4_success">Notice their synchronized motion — the center of mass is empty space!</string>
+
+    <!-- Challenge 5 -->
+    <string name="zig_gravity_challenge_5_title">Planetary collision</string>
+    <string name="zig_gravity_challenge_5_intro">When two identical planets collide head-on, what happens?</string>
+    <string name="zig_gravity_challenge_5_opt_1">They bounce outward rapidly</string>
+    <string name="zig_gravity_challenge_5_opt_2">One stops and one continues</string>
+    <string name="zig_gravity_challenge_5_opt_3">They merge almost at rest</string>
+    <string name="zig_gravity_challenge_5_success">Momenta cancel out; the new merged body is nearly stationary. Pure conservation of momentum!</string>
+
+    <!-- Challenge 6 -->
+    <string name="zig_gravity_challenge_6_title">Captured</string>
+    <string name="zig_gravity_challenge_6_intro">If a marble heads directly toward a black hole, what happens?</string>
+    <string name="zig_gravity_challenge_6_opt_1">Passes by and continues</string>
+    <string name="zig_gravity_challenge_6_opt_2">Bounces back like a ball</string>
+    <string name="zig_gravity_challenge_6_opt_3">Captured forever</string>
+    <string name="zig_gravity_challenge_6_success">Beyond the event horizon, all paths lead inward.</string>
+
+    <!-- Challenge 7 -->
+    <string name="zig_gravity_challenge_7_title">Wormhole trip</string>
+    <string name="zig_gravity_challenge_7_intro">A marble enters a wormhole mouth at 30 km/s. How does it exit?</string>
+    <string name="zig_gravity_challenge_7_opt_1">The gate holds it</string>
+    <string name="zig_gravity_challenge_7_opt_2">Exits the other gate at the same speed</string>
+    <string name="zig_gravity_challenge_7_opt_3">It is destroyed</string>
+    <string name="zig_gravity_challenge_7_success">Same speed, same direction — only location changed. And remember: hypothetical!</string>
+
+    <!-- Challenge 8 -->
+    <string name="zig_gravity_challenge_8_title">Why doesn\'t the Moon fall?</string>
+    <string name="zig_gravity_challenge_8_intro">Why doesn\'t the Moon crash into Earth despite Earth\'s gravity?</string>
+    <string name="zig_gravity_challenge_8_opt_1">There is no gravity in space</string>
+    <string name="zig_gravity_challenge_8_opt_2">Balanced by an opposing force</string>
+    <string name="zig_gravity_challenge_8_opt_3">It falls constantly, but also moves sideways</string>
+    <string name="zig_gravity_challenge_8_success">Newton: the Moon falls just like an apple — it just keeps \'missing\' Earth. Perpetual fall is an orbit.</string>
+</resources>

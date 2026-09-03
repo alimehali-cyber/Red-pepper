@@ -2,6 +2,7 @@ package com.alijafari.red.astronomy.ui.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -9,6 +10,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
 import androidx.compose.material3.*
@@ -36,6 +38,16 @@ enum class LabFeatureType(
     val icon: ImageVector,
     val isAvailable: Boolean
 ) {
+    GRAVITY_SANDBOX(
+        titleEn = "Gravity Sandbox",
+        titleFa = "میز گرانش (سندباکس)",
+        subtitleEn = "N-Body Gravitational Tabletop",
+        subtitleFa = "شبیه‌ساز و میز آزمایش جاذبه N-جرم",
+        descriptionEn = "Interactive N-body celestial mechanics tabletop simulation.",
+        descriptionFa = "میز آزمایشگاهی مکانیک سماوی و شبیه‌سازی گرانش چندجرمی.",
+        icon = Icons.Default.Public,
+        isAvailable = true
+    ),
     TIME_DILATION(
         titleEn = "Time Dilation",
         titleFa = "انقباض زمان و نسبیت",
@@ -77,7 +89,30 @@ fun LabScreen(
     val isFa = uiState.language == AppLanguage.PERSIAN
     var selectedFeature by remember { mutableStateOf<LabFeatureType?>(null) }
 
-    if (selectedFeature == LabFeatureType.TIME_DILATION) {
+    if (selectedFeature == LabFeatureType.GRAVITY_SANDBOX) {
+        Box(modifier = modifier.fillMaxSize()) {
+            com.zig.gravity.ui.GravitySandboxScreen()
+
+            IconButton(
+                onClick = { selectedFeature = null },
+                modifier = Modifier
+                    .statusBarsPadding()
+                    .padding(start = 16.dp, top = 8.dp)
+                    .size(40.dp)
+                    .clip(CircleShape)
+                    .background(com.zig.gravity.ui.theme.ZigGravityColor.glassContainer)
+                    .border(1.dp, com.zig.gravity.ui.theme.ZigGravityColor.glassStroke, CircleShape)
+                    .align(Alignment.TopStart)
+                    .testTag("gravity_back_to_lab")
+            ) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = "Back",
+                    tint = com.zig.gravity.ui.theme.ZigGravityColor.onSurface
+                )
+            }
+        }
+    } else if (selectedFeature == LabFeatureType.TIME_DILATION) {
         TimeDilationCalculatorScreen(
             uiState = uiState,
             onBackToLab = { selectedFeature = null },

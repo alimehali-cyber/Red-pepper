@@ -85,4 +85,147 @@
     <string name="no_logs_yet">No observation logs recorded yet.</string>
     <string name="delete">Delete</string>
     <string name="close">Close</string>
+
+    <!-- ZIG Gravity Sandbox (Persian Default) -->
+    <string name="zig_gravity_empty_state">میز آزمایش آماده است</string>
+    <string name="zig_gravity_cd_play_pause">توقف / ادامه</string>
+    <string name="zig_gravity_cd_speed">سرعت زمان</string>
+    <string name="zig_gravity_cd_reset">بازنشانی آزمایش</string>
+    <string name="zig_gravity_cd_trails">ردّ حرکت</string>
+    <string name="zig_gravity_cd_teaching">حالت آموزش</string>
+    <string name="zig_gravity_cd_theme">پوسته</string>
+    <string name="zig_gravity_cd_language">زبان</string>
+    <string name="zig_gravity_cd_add">افزودن جسم</string>
+    <string name="zig_gravity_speed_0_1">۰٫۱×</string>
+    <string name="zig_gravity_speed_0_25">۰٫۲۵×</string>
+    <string name="zig_gravity_speed_1">۱×</string>
+    <string name="zig_gravity_speed_4">۴×</string>
+    <string name="zig_gravity_speed_16">۱۶×</string>
+
+    <string name="zig_gravity_inspect">مشخصات</string>
+    <string name="zig_gravity_duplicate">بازآفرینی</string>
+    <string name="zig_gravity_remove">حذف</string>
+    <string name="zig_gravity_mass">جرم</string>
+    <string name="zig_gravity_mass_earth_unit">جرم زمین = ۱</string>
+    <string name="zig_gravity_mass_sun_unit">جرم خورشید = ۱</string>
+    <string name="zig_gravity_size">اندازه</string>
+    <string name="zig_gravity_velocity">سرعت</string>
+    <string name="zig_gravity_circularize">مدار دایره‌ای کن</string>
+    <string name="zig_gravity_add_title">افزودن جسم</string>
+    <string name="zig_gravity_type_sun">خورشید</string>
+    <string name="zig_gravity_type_planet">سیاره</string>
+    <string name="zig_gravity_type_moon">ماه</string>
+    <string name="zig_gravity_type_asteroid">سیارک</string>
+    <string name="zig_gravity_type_marble">گوی آزمایش</string>
+    <string name="zig_gravity_type_black_hole">سیاه‌چاله</string>
+    <string name="zig_gravity_type_wormhole">کرم‌چاله</string>
+    <string name="zig_gravity_type_wormhole_pair">کرم‌چاله (جفت)</string>
+    <string name="zig_gravity_type_wormhole_mouth">دهانهٔ کرم‌چاله</string>
+    <string name="zig_gravity_wormhole_desc">دو دهانهٔ متصل — میانبر گرانشی</string>
+    <string name="zig_gravity_wormhole_mouth_radius">شعاع دهانه</string>
+    <string name="zig_gravity_wormhole_partner_label">دهانهٔ متصل: جسم %1$d</string>
+    <string name="zig_gravity_wormhole_remove_warning">حذف این دهانه، دهانهٔ متصل به آن را نیز حذف می‌کند.</string>
+    <string name="zig_gravity_wormhole_explanation">کرم‌چاله ساختاری فرضی در نسبیت عام است. در این آزمایش، دو دهانه به‌عنوان بازتاب‌دهنده‌های مکانی عمل می‌کنند و جرمی ندارند. هر جسمی که وارد این دهانه شود، با همان سرعت از دهانهٔ متصل خارج می‌شود.</string>
+    <string name="zig_gravity_coming_soon">به‌زودی</string>
+    <string name="zig_gravity_table_full">زمین آزمایش پر است — ۲۰ جسم بیشتر جا نمی‌شود</string>
+    <string name="zig_gravity_preview_approx">پیش‌نمایش تقریبی</string>
+    <string name="zig_gravity_real_radius_sun">شعاع واقعی خورشید: ۶۹۵٬۷۰۰ کیلومتر</string>
+    <string name="zig_gravity_real_radius_earth">شعاع واقعی زمین: ۶٬۳۷۱ کیلومتر</string>
+    <string name="zig_gravity_real_radius_moon">شعاع واقعی ماه: ۱٬۷۳۷ کیلومتر</string>
+    <string name="zig_gravity_marble_bounce_mode">برخورد کشسان تیله‌ها</string>
+    <string name="zig_gravity_marble_bounce_desc">تیله‌های آزمایشی به‌جای ادغام، پس از برخورد پرتاب می‌شوند</string>
+    <string name="zig_gravity_presets_title">آزمایش‌ها</string>
+    <string name="zig_gravity_preset_sun_earth">خورشید و زمین</string>
+    <string name="zig_gravity_preset_sun_earth_moon">خورشید، زمین و ماه</string>
+    <string name="zig_gravity_preset_binary_stars">دو ستاره‌ی رقصان</string>
+    <string name="zig_gravity_preset_figure_eight">مدار هشت</string>
+    <string name="zig_gravity_preset_collision_course">برخورد و ادغام</string>
+    <string name="zig_gravity_preset_marble_shower">بارش گوی‌ها</string>
+    <string name="zig_gravity_preset_stress_20">آزمون بار — ۲۰ جسم</string>
+    <string name="zig_gravity_event_horizon_real">افق رویداد واقعی: %1$s</string>
+    <string name="zig_gravity_bh_note">گرانش این شبیهسازی در همهجا نیوتنی است. افق رویداد مفهومی از نسبیت عام است که اینجا فقط بهعنوان مرز بازگشتناپذیری نشان داده میشود؛ اندازهٔ حلقه روی میز قرارداد نمایش است، نه مقیاس واقعی.</string>
+    <string name="zig_gravity_ring_size_hint">اندازهٔ حلقه (قرارداد نمایش)</string>
+
+    <!-- Phase 9: Education System -->
+    <string name="zig_gravity_edu_why">چرا؟</string>
+    <string name="zig_gravity_edu_learn_more">بیشتر بدانیم</string>
+    <string name="zig_gravity_edu_ready">آماده‌ام</string>
+    <string name="zig_gravity_edu_observe">مشاهده کن…</string>
+    <string name="zig_gravity_edu_predict_prompt">پیش‌بینی‌ات چیست؟</string>
+    <string name="zig_gravity_edu_reflection_template">پیش‌بینی‌ات: %1$s — پاسخ درست: %2$s</string>
+    <string name="zig_gravity_edu_challenges_title">چالش‌ها و آزمایش‌های هدایت‌شده</string>
+    <string name="zig_gravity_edu_challenges_subtitle">آزمایش کن، پیش‌بینی کن و قوانین کیهان را کشف کن</string>
+
+    <!-- Prediction micro-prompts -->
+    <string name="zig_gravity_pred_mass_opt_change">مدار عوض می‌شود</string>
+    <string name="zig_gravity_pred_mass_opt_none">تقریباً هیچ</string>
+    <string name="zig_gravity_pred_mass_reaction">جرم بیشتر، جاذبهٔ بیشتر — ولی اینرسی هم بیشتر؛ مدارِ خودِ جسم تقریباً بی‌تفاوت! فقط لرزش جسمِ دیگر بزرگتر می‌شود.</string>
+    <string name="zig_gravity_pred_vel_opt_expand">مدار بزرگتر می‌شود</string>
+    <string name="zig_gravity_pred_vel_opt_fall">می‌افتد پایین</string>
+    <string name="zig_gravity_pred_vel_reaction">سرعت بیشتر، مدار بزرگتر — و اگر از سرعت گریز بگذرد، دیگر هیچ مداری نیست.</string>
+    <string name="zig_gravity_pred_size_reaction">اندازه در این آزمایش قراردادِ نمایش است و شعاعِ برخورد را عوض می‌کند — نه فیزیکِ گرانش را.</string>
+
+    <!-- Challenge 1 -->
+    <string name="zig_gravity_challenge_1_title">جرم دوبرابر</string>
+    <string name="zig_gravity_challenge_1_intro">اگر جرم زمین را دو برابر کنیم، مدارش به دور خورشید چه تغییری می‌کند؟</string>
+    <string name="zig_gravity_challenge_1_opt_1">مدار زمین تندتر و تنگ‌تر می‌شود</string>
+    <string name="zig_gravity_challenge_1_opt_2">مدار زمین تقریباً بدون تغییر می‌ماند</string>
+    <string name="zig_gravity_challenge_1_opt_3">زمین می‌گیرد و داخل خورشید می‌افتد</string>
+    <string name="zig_gravity_challenge_1_success">گرانش دو برابر، اینرسی دو برابر — این دو اثر دقیقاً یکدیگر را خنثی می‌کنند! تنها تغییر واقعی: لرزش خورشید دو برابر بزرگتر می‌شود.</string>
+
+    <!-- Challenge 2 -->
+    <string name="zig_gravity_challenge_2_title">زمینِ دورتر</string>
+    <string name="zig_gravity_challenge_2_intro">اگر سیاره‌ای در فاصلهٔ ۱٫۵ برابر زمین قرار گیرد، طول سال آن چه تغییری می‌کند؟</string>
+    <string name="zig_gravity_challenge_2_opt_1">سالِ کوتاه‌تر و حرکت تندتر</string>
+    <string name="zig_gravity_challenge_2_opt_2">سالِ بلندتر و حرکت کندتر</string>
+    <string name="zig_gravity_challenge_2_opt_3">بدون تغییر</string>
+    <string name="zig_gravity_challenge_2_success">کپلر: در ۱٫۵ برابر فاصله، سال حدود ۱٫۸ برابر بلندتر می‌شود (T² ∝ a³).</string>
+
+    <!-- Challenge 3 -->
+    <string name="zig_gravity_challenge_3_title">سرعتِ زیاد</string>
+    <string name="zig_gravity_challenge_3_intro">اگر تیله‌ای در مدار زمین با سرعت ۴۵ کیلومتر بر ثانیه پرتاب شود، چه رخ می‌دهد؟</string>
+    <string name="zig_gravity_challenge_3_opt_1">مدار پایین‌تر می‌شود</string>
+    <string name="zig_gravity_challenge_3_opt_2">تندتر می‌چرخد ولی می‌ماند</string>
+    <string name="zig_gravity_challenge_3_opt_3">از چنگ گرانش می‌رود</string>
+    <string name="zig_gravity_challenge_3_success">۴۵ کیلومتر بر ثانیه از سرعت گریزِ ۴۲٫۱ گذشته — دیگر هیچ مداری نگهش نمی‌دارد.</string>
+
+    <!-- Challenge 4 -->
+    <string name="zig_gravity_challenge_4_title">رقص دو ستاره</string>
+    <string name="zig_gravity_challenge_4_intro">در سامانهٔ دو ستاره با جرم برابر، حرکت آن‌ها چگونه است؟</string>
+    <string name="zig_gravity_challenge_4_opt_1">ستارهٔ بزرگتر، کوچکتر را می‌چرخاند</string>
+    <string name="zig_gravity_challenge_4_opt_2">هر دو گردِ نقطهٔ نامرئی وسط می‌چرخند</string>
+    <string name="zig_gravity_challenge_4_opt_3">هر دو ساکن‌اند</string>
+    <string name="zig_gravity_challenge_4_success">به لرزش ظریف هر دو دقت کن — مرکز جرم جایی است که هیچ‌چیز نیست!</string>
+
+    <!-- Challenge 5 -->
+    <string name="zig_gravity_challenge_5_title">برخورد دو سیاره</string>
+    <string name="zig_gravity_challenge_5_intro">وقتی دو سیاره با جرم و سرعت برابر روبروی هم برخورد کنند، چه رخ می‌دهد؟</string>
+    <string name="zig_gravity_challenge_5_opt_1">با شتاب به بیرون می‌جهند</string>
+    <string name="zig_gravity_challenge_5_opt_2">یکی می‌ایستد و یکی می‌رود</string>
+    <string name="zig_gravity_challenge_5_opt_3">تقریباً ساکن، یکی می‌شوند</string>
+    <string name="zig_gravity_challenge_5_success">تکانه‌ها تقریباً یکدیگر را خنثی می‌کنند؛ جسمِ تازه تقریباً ساکن است. پایستگی تکانه، عیناً!</string>
+
+    <!-- Challenge 6 -->
+    <string name="zig_gravity_challenge_6_title">شکار سیاهچاله</string>
+    <string name="zig_gravity_challenge_6_intro">اگر تیله‌ای مستقیماً به سمت سیاهچاله حرکت کند، چه بر سر آن می‌آید؟</string>
+    <string name="zig_gravity_challenge_6_opt_1">از کنارش رد می‌شود و ادامه می‌دهد</string>
+    <string name="zig_gravity_challenge_6_opt_2">مثل توپ برمی‌گردد</string>
+    <string name="zig_gravity_challenge_6_opt_3">برای همیشه اسیر می‌شود</string>
+    <string name="zig_gravity_challenge_6_success">از لبهٔ افق رویداد به بعد، هر مسیری به داخل ختم می‌شود.</string>
+
+    <!-- Challenge 7 -->
+    <string name="zig_gravity_challenge_7_title">سفر کرمچاله</string>
+    <string name="zig_gravity_challenge_7_intro">تیله‌ای با سرعت ۳۰ کیلومتر بر ثانیه وارد دهانهٔ کرمچاله می‌شود. خروج آن چگونه است؟</string>
+    <string name="zig_gravity_challenge_7_opt_1">دروازه او را نگه می‌دارد</string>
+    <string name="zig_gravity_challenge_7_opt_2">با همان سرعت از دروازهٔ دیگر بیرون می‌آید</string>
+    <string name="zig_gravity_challenge_7_opt_3">نابود می‌شود</string>
+    <string name="zig_gravity_challenge_7_success">همان سرعت، همان جهت — فقط «اینجا» عوض شد. و یادت باشد: فرضی!</string>
+
+    <!-- Challenge 8 -->
+    <string name="zig_gravity_challenge_8_title">ماه چرا نمی‌افتد؟</string>
+    <string name="zig_gravity_challenge_8_intro">چرا ماه با وجود گرانش زمین، روی آن سقوط نمی‌کند؟</string>
+    <string name="zig_gravity_challenge_8_opt_1">در فضا گرانش نیست</string>
+    <string name="zig_gravity_challenge_8_opt_2">با نیرویی مقابل در تعادل است</string>
+    <string name="zig_gravity_challenge_8_opt_3">دائماً می‌افتد، ولی به پهلو هم می‌رود</string>
+    <string name="zig_gravity_challenge_8_success">نیوتن: ماه دقیقاً مثل سیب می‌افتد — فقط زمین را «خطا می‌زند». سقوطِ دائمی، یعنی مدار.</string>
 </resources>
