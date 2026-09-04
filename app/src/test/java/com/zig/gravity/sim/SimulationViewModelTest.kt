@@ -447,28 +447,31 @@ class SimulationViewModelTest {
     fun saveRestorePreservesThemeAndLanguage() {
         val vm = SimulationViewModel()
         vm.onViewportChanged(1080, 2.75f)
-        // Set light theme and english language
-        vm.toggleTheme() // dark -> light
+        // Set light surface (paper) and english language
+        vm.setTableSurface("paper")
         assertEquals(false, vm.ui.value.darkTheme)
+        assertEquals("paper", vm.ui.value.tableSurface)
         vm.toggleLanguage() // fa -> en
         assertEquals("en", vm.ui.value.language)
 
         val json = vm.exportSave()!!
-        assertTrue("JSON contains version 3", json.contains("\"version\": 3") || json.contains("\"version\":3"))
-        assertTrue("JSON contains theme light", json.contains("\"theme\": \"light\"") || json.contains("\"theme\":\"light\""))
+        assertTrue("JSON contains version 4", json.contains("\"version\": 4") || json.contains("\"version\":4"))
+        assertTrue("JSON contains tableSurface paper", json.contains("\"tableSurface\": \"paper\"") || json.contains("\"tableSurface\":\"paper\""))
         assertTrue("JSON contains language en", json.contains("\"language\": \"en\"") || json.contains("\"language\":\"en\""))
 
         // Fresh VM import
         val freshVm = SimulationViewModel()
         freshVm.onViewportChanged(1080, 2.75f)
         assertEquals(true, freshVm.ui.value.darkTheme)
+        assertEquals("midnight", freshVm.ui.value.tableSurface)
         assertEquals("fa", freshVm.ui.value.language)
 
         freshVm.importSave(json)
         assertEquals(false, freshVm.ui.value.darkTheme)
+        assertEquals("paper", freshVm.ui.value.tableSurface)
         assertEquals("en", freshVm.ui.value.language)
 
-        // Test backward compat: v2 save without theme and language
+        // Test backward compat: v2 save without tableSurface restores default midnight
         val legacyV2Json = """
             {
               "version": 2,
@@ -494,16 +497,50 @@ class SimulationViewModelTest {
         """.trimIndent()
 
         val compatVm = SimulationViewModel()
-        compatVm.toggleTheme() // set to light
+        compatVm.setTableSurface("paper")
         compatVm.toggleLanguage() // set to en
         assertEquals(false, compatVm.ui.value.darkTheme)
         assertEquals("en", compatVm.ui.value.language)
 
         val imported = compatVm.importSave(legacyV2Json)
         assertTrue("Legacy v2 save imported successfully", imported)
-        // Defaults should restore to dark and fa
+        // Defaults should restore to midnight (dark) and fa
         assertEquals(true, compatVm.ui.value.darkTheme)
+        assertEquals("midnight", compatVm.ui.value.tableSurface)
         assertEquals("fa", compatVm.ui.value.language)
+
+        // Test backward compat: v3 save with theme "light" restores paper
+        val legacyV3Json = """
+            {
+              "version": 3,
+              "presetKey": "sun_earth",
+              "simTime": 0.0,
+              "speed": 1.0,
+              "trailsEnabled": true,
+              "marbleBounce": false,
+              "bodies": [
+                {
+                  "typeOrdinal": 0,
+                  "massKg": 1.989e30,
+                  "radiusDp": 40.0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "vx": 0.0,
+                  "vy": 0.0,
+                  "userSized": false,
+                  "userMass": false
+                }
+              ],
+              "theme": "light",
+              "language": "fa"
+            }
+        """.trimIndent()
+
+        val compatV3Vm = SimulationViewModel()
+        val importedV3 = compatV3Vm.importSave(legacyV3Json)
+        assertTrue("Legacy v3 save imported successfully", importedV3)
+        assertEquals(false, compatV3Vm.ui.value.darkTheme)
+        assertEquals("paper", compatV3Vm.ui.value.tableSurface)
     }
 
     private fun captureSnapshot(state: SimArrays): StateSnapshot {

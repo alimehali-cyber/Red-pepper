@@ -94,6 +94,15 @@
     <string name="zig_gravity_cd_trails">ردّ حرکت</string>
     <string name="zig_gravity_cd_teaching">حالت آموزش</string>
     <string name="zig_gravity_cd_theme">پوسته</string>
+    <string name="zig_gravity_cd_table_colour">رنگ میز</string>
+    <string name="zig_gravity_table_colour_title">رنگ میز</string>
+    <string name="zig_gravity_surface_midnight">آسمانِ شب</string>
+    <string name="zig_gravity_surface_charcoal">زغالی</string>
+    <string name="zig_gravity_surface_ocean">اقیانوسِ ژرف</string>
+    <string name="zig_gravity_surface_lavender">گرگومیشِ بنفش</string>
+    <string name="zig_gravity_surface_paper">کاغذِ گرم</string>
+    <string name="zig_gravity_surface_porcelain">مهِ صبح</string>
+    <string name="zig_gravity_surface_blush">شنِ گلبهی</string>
     <string name="zig_gravity_cd_language">زبان</string>
     <string name="zig_gravity_cd_add">افزودن جسم</string>
     <string name="zig_gravity_speed_0_1">۰٫۱×</string>

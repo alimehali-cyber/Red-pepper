@@ -18,13 +18,14 @@ data class BodySave(
 
 @Serializable
 data class SimSave(
-    val version: Int = 3,
+    val version: Int = 4,
     val presetKey: String?,
     val simTime: Double,
     val speed: Double,
     val trailsEnabled: Boolean,
     val marbleBounce: Boolean,
     val bodies: List<BodySave>,
+    val tableSurface: String = "midnight",
     val theme: String = "dark",
     val language: String? = null
 )

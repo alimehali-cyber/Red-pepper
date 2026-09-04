@@ -36,6 +36,7 @@ import com.alijafari.red.astronomy.R
 import com.zig.gravity.sim.ChallengePhase
 import com.zig.gravity.sim.SimulationViewModel
 import com.zig.gravity.sim.ZigGravityDebug
+import com.zig.gravity.ui.theme.TableSurfaces
 import com.zig.gravity.ui.theme.ZigGravityColor
 import com.zig.gravity.ui.theme.ZigGravityTheme
 import kotlin.math.roundToInt
@@ -73,7 +74,7 @@ fun GravitySandboxScreen(
         }
     }
 
-    ZigGravityTheme(darkTheme = ui.darkTheme) {
+    ZigGravityTheme(surface = TableSurfaces.get(ui.tableSurface)) {
         CompositionLocalProvider(
             LocalConfiguration provides localizedConfiguration,
             LocalLayoutDirection provides (if (ui.language == "fa") LayoutDirection.Rtl else LayoutDirection.Ltr)
@@ -122,6 +123,7 @@ fun GravitySandboxScreen(
                     onToggleTrails = vm::toggleTrails,
                     onToggleTeaching = vm::toggleTeaching,
                     onToggleTheme = vm::toggleTheme,
+                    onOpenTableSurfaces = vm::openTableSurfaces,
                     onToggleLanguage = vm::toggleLanguage,
                     onTogglePerfOverlay = vm::togglePerfOverlay,
                     onOpenChallenges = vm::openChallengesSheet,
@@ -247,6 +249,18 @@ fun GravitySandboxScreen(
                 if (ui.showChallengesSheet) {
                     ChallengesSheet(
                         onSelectChallenge = vm::startChallenge,
+                        onDismiss = vm::dismissSheets
+                    )
+                }
+
+                // Table Surface Bottom Sheet
+                if (ui.showTableSurfacesSheet) {
+                    TableSurfaceSheet(
+                        currentSurfaceKey = ui.tableSurface,
+                        onSelectSurface = { surfaceKey ->
+                            vm.setTableSurface(surfaceKey)
+                            vm.dismissSheets()
+                        },
                         onDismiss = vm::dismissSheets
                     )
                 }

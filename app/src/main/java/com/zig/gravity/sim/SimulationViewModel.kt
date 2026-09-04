@@ -17,6 +17,7 @@ import com.zig.gravity.physics.clampVelocity
 import com.zig.gravity.physics.computeCircularOrbitVelocity
 import com.zig.gravity.physics.uiSpeedGuidance
 import com.zig.gravity.ui.ActiveTeachingCard
+import com.zig.gravity.ui.theme.TableSurfaces
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -280,7 +281,29 @@ class SimulationViewModel : ViewModel() {
     }
 
     fun toggleTheme() {
-        _ui.value = _ui.value.copy(darkTheme = !_ui.value.darkTheme)
+        val next = if (_ui.value.darkTheme) "paper" else "midnight"
+        _ui.value = _ui.value.copy(tableSurface = next)
+    }
+
+    fun setTableSurface(key: String) {
+        if (TableSurfaces.contains(key)) {
+            _ui.value = _ui.value.copy(tableSurface = key)
+        }
+    }
+
+    fun openTableSurfaces() {
+        _ui.value = _ui.value.copy(
+            showTableSurfacesSheet = true,
+            showInspectorSheet = false,
+            showContextSheet = false,
+            showCatalogSheet = false,
+            showPresetPickerSheet = false,
+            showChallengesSheet = false
+        )
+    }
+
+    fun closeTableSurfaces() {
+        _ui.value = _ui.value.copy(showTableSurfacesSheet = false)
     }
 
     fun toggleLanguage() {
@@ -348,6 +371,7 @@ class SimulationViewModel : ViewModel() {
             showContextSheet = false,
             showCatalogSheet = false,
             showPresetPickerSheet = false,
+            showTableSurfacesSheet = false,
             catalogFullNotice = false
         )
         publish()
@@ -384,13 +408,14 @@ class SimulationViewModel : ViewModel() {
             )
         }
         val save = SimSave(
-            version = 3,
+            version = 4,
             presetKey = _ui.value.presetKey,
             simTime = engine.state.simTime,
             speed = _ui.value.speed,
             trailsEnabled = _ui.value.trailsEnabled,
             marbleBounce = _ui.value.marbleBounce,
             bodies = bodies,
+            tableSurface = _ui.value.tableSurface,
             theme = if (_ui.value.darkTheme) "dark" else "light",
             language = _ui.value.language
         )
@@ -465,20 +490,29 @@ class SimulationViewModel : ViewModel() {
         engine.state.simTime = save.simTime
         setSpeed(save.speed)
         engine.marbleBounceMode = save.marbleBounce
-        val isDark = save.theme != "light"
+        val resolvedSurface = if (save.version >= 4) {
+            if (TableSurfaces.contains(save.tableSurface)) save.tableSurface else "midnight"
+        } else {
+            when (save.theme) {
+                "light" -> "paper"
+                "dark" -> "midnight"
+                else -> "midnight"
+            }
+        }
         val lang = save.language ?: "fa"
         _ui.value = _ui.value.copy(
             running = false,
             presetKey = save.presetKey,
             trailsEnabled = save.trailsEnabled,
             marbleBounce = save.marbleBounce,
-            darkTheme = isDark,
+            tableSurface = resolvedSurface,
             language = lang,
             selectedId = -1L,
             showInspectorSheet = false,
             showContextSheet = false,
             showCatalogSheet = false,
             showPresetPickerSheet = false,
+            showTableSurfacesSheet = false,
             catalogFullNotice = false
         )
         engine.computeAccelerations()
@@ -729,6 +763,7 @@ class SimulationViewModel : ViewModel() {
             showCatalogSheet = false,
             showPresetPickerSheet = false,
             showChallengesSheet = false,
+            showTableSurfacesSheet = false,
             catalogFullNotice = false
         )
         publish()

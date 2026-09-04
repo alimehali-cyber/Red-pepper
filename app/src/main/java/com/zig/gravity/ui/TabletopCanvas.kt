@@ -12,6 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
@@ -32,6 +33,10 @@ import kotlin.math.sin
 import com.zig.gravity.ui.theme.ZigGravityColor
 import com.zig.gravity.ui.theme.GravityPalette
 import com.zig.gravity.ui.theme.LocalGravityPalette
+import com.zig.gravity.ui.theme.ChromeMode
+import com.zig.gravity.ui.theme.GradientType
+import com.zig.gravity.ui.theme.LocalTableSurface
+import com.zig.gravity.ui.theme.generateStarDots
 import kotlin.math.hypot
 import kotlin.math.max
 
@@ -57,6 +62,7 @@ fun TabletopCanvas(
 ) {
     val haptic = LocalHapticFeedback.current
     val palette = LocalGravityPalette.current
+    val surface = LocalTableSurface.current
 
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
         Box(modifier = modifier.fillMaxSize()) {
@@ -68,41 +74,75 @@ fun TabletopCanvas(
                         val w = size.width
                         val h = size.height
 
-                        // 1. Tabletop: radial gradient centered at (50% w, 38% h), radius ≈ 0.95 * max(w, h)
-                        val tabletopCenter = Offset(w * 0.50f, h * 0.38f)
-                        val tabletopRadius = 0.95f * max(w, h)
-                        val tabletopBrush = Brush.radialGradient(
-                            colors = listOf(palette.surfaceCenter, palette.surfaceEdge),
-                            center = tabletopCenter,
-                            radius = tabletopRadius
-                        )
+                        // 1. Surface base gradient
+                        val bgBrush = when (surface.gradientType) {
+                            GradientType.RADIAL -> {
+                                val center = Offset(w * surface.radialCenterNorm.first, h * surface.radialCenterNorm.second)
+                                val radius = 0.95f * max(w, h)
+                                Brush.radialGradient(
+                                    colors = surface.gradientColors,
+                                    center = center,
+                                    radius = radius
+                                )
+                            }
+                            GradientType.LINEAR_VERTICAL -> {
+                                Brush.verticalGradient(
+                                    colors = surface.gradientColors,
+                                    startY = 0f,
+                                    endY = h
+                                )
+                            }
+                        }
 
-                        // 2. Corner vignette: radial gradient centered (50%, 50%), radius ≈ 0.75 * diagonal
-                        val vignetteCenter = Offset(w * 0.50f, h * 0.50f)
-                        val diagonal = hypot(w.toDouble(), h.toDouble()).toFloat()
-                        val vignetteRadius = 0.75f * diagonal
-                        val vignetteAlpha = if (palette == ZigGravityColor.LightPalette) 0.22f else 0.33f
-                        val vignetteBrush = Brush.radialGradient(
-                            colors = listOf(
-                                Color.Transparent,
-                                palette.vignette.copy(alpha = vignetteAlpha)
-                            ),
-                            center = vignetteCenter,
-                            radius = vignetteRadius
-                        )
+                        // 2. Corner vignette
+                        val vignetteBrush = if (surface.vignetteStrength > 0f) {
+                            val vignetteCenter = Offset(w * 0.50f, h * 0.50f)
+                            val diagonal = hypot(w.toDouble(), h.toDouble()).toFloat()
+                            val vignetteRadius = 0.75f * diagonal
+                            Brush.radialGradient(
+                                colors = listOf(
+                                    Color.Transparent,
+                                    surface.vignetteColor.copy(alpha = surface.vignetteStrength)
+                                ),
+                                center = vignetteCenter,
+                                radius = vignetteRadius
+                            )
+                        } else null
 
                         // 3. Top sheen
-                        val sheenBrush = Brush.verticalGradient(
-                            0.0f to palette.sheen,
-                            0.30f to Color.Transparent,
-                            startY = 0f,
-                            endY = h
-                        )
+                        val sheenBrush = if (surface.sheenStrength > 0f) {
+                            Brush.verticalGradient(
+                                0.0f to Color.White.copy(alpha = surface.sheenStrength),
+                                0.30f to Color.Transparent,
+                                startY = 0f,
+                                endY = h
+                            )
+                        } else null
+
+                        // 4. Star pattern dots (generated once per size/spec, seed fixed)
+                        val starDots = if (surface.pattern != null) {
+                            generateStarDots(surface.pattern)
+                        } else emptyList()
 
                         onDrawBehind {
-                            drawRect(brush = tabletopBrush)
-                            drawRect(brush = vignetteBrush)
-                            drawRect(brush = sheenBrush)
+                            drawRect(brush = bgBrush)
+                            if (vignetteBrush != null) {
+                                drawRect(brush = vignetteBrush)
+                            }
+                            if (sheenBrush != null) {
+                                drawRect(brush = sheenBrush)
+                            }
+                            if (starDots.isNotEmpty()) {
+                                val starColor = Color.White
+                                for (i in starDots.indices) {
+                                    val dot = starDots[i]
+                                    drawCircle(
+                                        color = starColor.copy(alpha = dot.alpha),
+                                        radius = dot.radiusDp * density,
+                                        center = Offset(dot.normX * w, dot.normY * h)
+                                    )
+                                }
+                            }
                         }
                     },
                 onDraw = {}
@@ -343,14 +383,14 @@ fun TabletopCanvas(
                             if (olderStarted) {
                                 drawPath(
                                     path = olderPath,
-                                    color = baseColor.copy(alpha = 0.15f),
+                                    color = baseColor.copy(alpha = surface.trailAlphaPair.first),
                                     style = Stroke(width = strokeWidth)
                                 )
                             }
                             if (newerStarted) {
                                 drawPath(
                                     path = newerPath,
-                                    color = baseColor.copy(alpha = 0.22f),
+                                    color = baseColor.copy(alpha = surface.trailAlphaPair.second),
                                     style = Stroke(width = strokeWidth)
                                 )
                             }
@@ -414,7 +454,11 @@ fun TabletopCanvas(
                     }
                 }
 
-                // 3) SHADOWS: per body, radial Brush(black 0.25f → transparent)
+                // 3) SHADOWS: realistic two-layer soft cast (penumbra then umbra, offset to bottom-right)
+                val isDarkSurface = surface.chromeMode == ChromeMode.DARK
+                val umbraAlpha = if (isDarkSurface) 0.32f else 0.26f
+                val penumbraAlpha = if (isDarkSurface) 0.20f else 0.16f
+
                 for (bIndex in 0 until bodyCount) {
                     val body = bodies[bIndex]
                     if (body.type == BodyType.BLACK_HOLE || body.type == BodyType.WORMHOLE_MOUTH) continue // No contact shadow for aperture bodies
@@ -423,17 +467,36 @@ fun TabletopCanvas(
                     val r = (body.radiusMeters * scale).toFloat()
                     if (r <= 0f) continue
 
-                    val shadowRadius = 1.35f * r
-                    val shadowCenter = Offset(bx, by + 0.18f * r)
-                    val shadowBrush = Brush.radialGradient(
-                        colors = listOf(Color.Black.copy(alpha = 0.25f), Color.Transparent),
-                        center = shadowCenter,
-                        radius = shadowRadius
+                    // Penumbra: radial gradient, oval ~1.45r x 1.15r, offset (+0.38r, +0.34r)
+                    val penumbraCenterX = bx + 0.38f * r
+                    val penumbraCenterY = by + 0.34f * r
+                    val penumbraRx = 1.45f * r
+                    val penumbraRy = 1.15f * r
+                    val penumbraBrush = Brush.radialGradient(
+                        colors = listOf(Color.Black.copy(alpha = penumbraAlpha), Color.Transparent),
+                        center = Offset(penumbraCenterX, penumbraCenterY),
+                        radius = max(penumbraRx, penumbraRy)
                     )
-                    drawCircle(
-                        brush = shadowBrush,
-                        radius = shadowRadius,
-                        center = shadowCenter
+                    drawOval(
+                        brush = penumbraBrush,
+                        topLeft = Offset(penumbraCenterX - penumbraRx, penumbraCenterY - penumbraRy),
+                        size = Size(penumbraRx * 2f, penumbraRy * 2f)
+                    )
+
+                    // Umbra: radial gradient, oval ~0.8r x 0.8r, offset (+0.20r, +0.18r)
+                    val umbraCenterX = bx + 0.20f * r
+                    val umbraCenterY = by + 0.18f * r
+                    val umbraRx = 0.80f * r
+                    val umbraRy = 0.80f * r
+                    val umbraBrush = Brush.radialGradient(
+                        colors = listOf(Color.Black.copy(alpha = umbraAlpha), Color.Transparent),
+                        center = Offset(umbraCenterX, umbraCenterY),
+                        radius = umbraRx
+                    )
+                    drawOval(
+                        brush = umbraBrush,
+                        topLeft = Offset(umbraCenterX - umbraRx, umbraCenterY - umbraRy),
+                        size = Size(umbraRx * 2f, umbraRy * 2f)
                     )
                 }
 

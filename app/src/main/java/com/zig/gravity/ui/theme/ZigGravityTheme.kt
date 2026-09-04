@@ -38,17 +38,30 @@ private fun createColorScheme(palette: GravityPalette, dark: Boolean) = if (dark
 
 @Composable
 fun ZigGravityTheme(
-    darkTheme: Boolean = true,
+    surface: GravitySurface = TableSurfaces.midnight,
     content: @Composable () -> Unit
 ) {
-    val palette = if (darkTheme) ZigGravityColor.DarkPalette else ZigGravityColor.LightPalette
-    val colorScheme = createColorScheme(palette, darkTheme)
+    val dark = surface.chromeMode == ChromeMode.DARK
+    val palette = if (dark) ZigGravityColor.DarkPalette else ZigGravityColor.LightPalette
+    val colorScheme = createColorScheme(palette, dark)
 
-    CompositionLocalProvider(LocalGravityPalette provides palette) {
+    CompositionLocalProvider(
+        LocalGravityPalette provides palette,
+        LocalTableSurface provides surface
+    ) {
         MaterialTheme(
             colorScheme = colorScheme,
             content = content
         )
     }
+}
+
+@Composable
+fun ZigGravityTheme(
+    darkTheme: Boolean,
+    content: @Composable () -> Unit
+) {
+    val surface = if (darkTheme) TableSurfaces.charcoal else TableSurfaces.paper
+    ZigGravityTheme(surface = surface, content = content)
 }
 

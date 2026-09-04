@@ -36,45 +36,45 @@ object ZigGravityColor {
         surfaceEdge = Color(0xFF16181D),     // radial gradient edge
         vignette = Color(0xFF0F1116),        // corner darkening
         sheen = Color(0x0FFFFFFF),           // white at ~6% alpha
-        onSurface = Color(0xFFE8E6E1),
-        onSurfaceVariant = Color(0xFFB9B5AC),
-        glassContainer = Color(0xB31C1F26),  // #1C1F26 at ~70% alpha
+        onSurface = Color(0xFFF1F4F7),
+        onSurfaceVariant = Color(0xFFABB6C2),
+        glassContainer = Color(0xB3161A22),  // #161A22 at ~70% alpha
         glassStroke = Color(0x0FFFFFFF),     // white at ~6% alpha
-        accent = Color(0xFFD4A853),          // muted brass
-        bodySunBase = Color(0xFFD8B978),
-        bodySunDeep = Color(0xFFA8874E),     // ivory-amber
-        bodyEarthBase = Color(0xFF7C93B8),
-        bodyEarthDeep = Color(0xFF55688A),   // slate-blue
-        bodyMoonBase = Color(0xFFC9C4B6),
-        bodyMoonDeep = Color(0xFF94907F),    // bone
-        bodyAsteroidBase = Color(0xFFA09383),
-        bodyAsteroidDeep = Color(0xFF6E6455), // warm grey
-        bodyMarbleBase = Color(0xFFE4E1DA),
-        bodyMarbleDeep = Color(0xFFB3AFA6),  // porcelain
+        accent = Color(0xFF2DD4BF),          // vivid aqua-teal
+        bodySunBase = Color(0xFFFFDC4A),
+        bodySunDeep = Color(0xFFF5A623),     // bright yellow / deep
+        bodyEarthBase = Color(0xFF3FA1FF),
+        bodyEarthDeep = Color(0xFF1E63D8),   // vivid azure / deep
+        bodyMoonBase = Color(0xFFFFFFFF),
+        bodyMoonDeep = Color(0xFFC7CCD8),    // bright white / pearl
+        bodyAsteroidBase = Color(0xFFD89B66),
+        bodyAsteroidDeep = Color(0xFF96603B), // warm terracotta
+        bodyMarbleBase = Color(0xFFF4F6FB),
+        bodyMarbleDeep = Color(0xFFBFC7DA),  // cool pearl
         bodyBlackHoleDisk = Color(0xFF0A0A0C) // ring uses accent
     )
 
-    // Surfaces & Chrome (light paper — §2.1 exact values)
+    // Surfaces & Chrome (light paper)
     val LightPalette = GravityPalette(
         surfaceCenter = Color(0xFFF4F1EA),   // warm paper radial center
         surfaceEdge = Color(0xFFE9E4D9),     // warm paper radial edge
         vignette = Color(0xFFDCD5C4),        // faint, max ~22% alpha
         sheen = Color(0x06FFFFFF),           // white 2.5%
-        onSurface = Color(0xFF25282E),
-        onSurfaceVariant = Color(0xFF5A5648),
+        onSurface = Color(0xFF23272E),
+        onSurfaceVariant = Color(0xFF5D6672),
         glassContainer = Color(0xA6FFFFFF),  // white ~65%
-        glassStroke = Color(0x1425282E),     // black ~8%
-        accent = Color(0xFF2F6B63),          // deep teal
-        bodySunBase = Color(0xFFC9A265),
-        bodySunDeep = Color(0xFF8F7038),
-        bodyEarthBase = Color(0xFF68829F),
-        bodyEarthDeep = Color(0xFF435671),
-        bodyMoonBase = Color(0xFFB0AB9C),
-        bodyMoonDeep = Color(0xFF7A766A),
-        bodyAsteroidBase = Color(0xFF8E8172),
-        bodyAsteroidDeep = Color(0xFF5E564A),
-        bodyMarbleBase = Color(0xFFD6D2C8),
-        bodyMarbleDeep = Color(0xFF9E9A8F),
+        glassStroke = Color(0x1425282E),     // dark ~8%
+        accent = Color(0xFF0E9F8F),          // deep teal
+        bodySunBase = Color(0xFFFFDC4A),
+        bodySunDeep = Color(0xFFF5A623),     // bright yellow / deep
+        bodyEarthBase = Color(0xFF3FA1FF),
+        bodyEarthDeep = Color(0xFF1E63D8),   // vivid azure / deep
+        bodyMoonBase = Color(0xFFFFFFFF),
+        bodyMoonDeep = Color(0xFFC7CCD8),    // bright white / pearl
+        bodyAsteroidBase = Color(0xFFD89B66),
+        bodyAsteroidDeep = Color(0xFF96603B), // warm terracotta
+        bodyMarbleBase = Color(0xFFF4F6FB),
+        bodyMarbleDeep = Color(0xFFBFC7DA),  // cool pearl
         bodyBlackHoleDisk = Color(0xFF26262B) // ring uses light accent teal
     )
 

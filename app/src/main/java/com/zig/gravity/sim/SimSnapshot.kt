@@ -1,6 +1,8 @@
 package com.zig.gravity.sim
 
 import com.zig.gravity.physics.BodyType
+import com.zig.gravity.ui.theme.ChromeMode
+import com.zig.gravity.ui.theme.TableSurfaces
 
 data class BodyRender(
     val id: Long,
@@ -56,9 +58,13 @@ data class UiState(
     val marbleBounce: Boolean = false,
     val showPresetPickerSheet: Boolean = false,
     val showChallengesSheet: Boolean = false,
+    val showTableSurfacesSheet: Boolean = false,
     val presetKey: String? = "sun_earth",
-    val darkTheme: Boolean = true,
+    val tableSurface: String = "midnight",
     val language: String = "fa",
     val showPerfOverlay: Boolean = false
-)
+) {
+    val darkTheme: Boolean
+        get() = TableSurfaces.get(tableSurface).chromeMode == ChromeMode.DARK
+}
 

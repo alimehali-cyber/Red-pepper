@@ -41,6 +41,7 @@ fun HudBar(
     onToggleTrails: () -> Unit,
     onToggleTeaching: () -> Unit = {},
     onToggleTheme: () -> Unit = {},
+    onOpenTableSurfaces: () -> Unit = {},
     onToggleLanguage: () -> Unit = {},
     onTogglePerfOverlay: () -> Unit = {},
     onOpenChallenges: () -> Unit = {},
@@ -81,13 +82,18 @@ fun HudBar(
                 )
             }
 
-            // 2. Speed
+            // 2. Speed (click = speed menu, long-click = toggle perf overlay)
             Box {
-                IconButton(
-                    onClick = { speedMenuExpanded = true },
+                Box(
                     modifier = Modifier
                         .size(48.dp)
-                        .testTag("hud_btn_speed")
+                        .clip(CircleShape)
+                        .combinedClickable(
+                            onClick = { speedMenuExpanded = true },
+                            onLongClick = onTogglePerfOverlay
+                        )
+                        .testTag("hud_btn_speed"),
+                    contentAlignment = Alignment.Center
                 ) {
                     Icon(
                         imageVector = Icons.Default.Speed,
@@ -196,21 +202,16 @@ fun HudBar(
                 )
             }
 
-            // 6. Theme (click = toggle theme, long-click = toggle perf overlay)
-            Box(
+            // 6. Table colour (click = open table surface sheet)
+            IconButton(
+                onClick = onOpenTableSurfaces,
                 modifier = Modifier
                     .size(48.dp)
-                    .clip(CircleShape)
-                    .combinedClickable(
-                        onClick = onToggleTheme,
-                        onLongClick = onTogglePerfOverlay
-                    )
-                    .testTag("hud_btn_theme"),
-                contentAlignment = Alignment.Center
+                    .testTag("hud_btn_table")
             ) {
                 Icon(
-                    imageVector = if (ui.darkTheme) Icons.Default.DarkMode else Icons.Default.LightMode,
-                    contentDescription = stringResource(R.string.zig_gravity_cd_theme),
+                    imageVector = Icons.Default.Palette,
+                    contentDescription = stringResource(R.string.zig_gravity_cd_table_colour),
                     tint = ZigGravityColor.onSurfaceVariant,
                     modifier = Modifier.size(22.dp)
                 )
